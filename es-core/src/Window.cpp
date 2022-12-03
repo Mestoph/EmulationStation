@@ -8,6 +8,7 @@
 #include "Scripting.h"
 #include <algorithm>
 #include <iomanip>
+#include "Locale.h"
 
 #ifdef WIN32
 #include <SDL_events.h>
@@ -307,6 +308,13 @@ void Window::renderLoadingScreen(std::string text, float percent, unsigned char 
 	Renderer::setMatrix(trans);
 	Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000FF, 0x000000FF);
 
+	ImageComponent splash(this, true);
+	//splash.setResize(Renderer::getScreenWidth() * 0.6f, 0.0f);
+	splash.setImage(":/splash.png");
+	//splash.setPosition((Renderer::getScreenWidth() - splash.getSize().x()) / 2, (Renderer::getScreenHeight() - splash.getSize().y()) / 2 * 0.6f);
+	splash.setPosition((Renderer::getScreenWidth() - splash.getSize().x()) / 2, (Renderer::getScreenHeight() - splash.getSize().y()) / 2);
+	splash.render(trans);
+
 	if (percent >= 0)
 	{
 		float baseHeight = 0.04f;
@@ -314,19 +322,14 @@ void Window::renderLoadingScreen(std::string text, float percent, unsigned char 
 		float w = Renderer::getScreenWidth() / 2;
 		float h = Renderer::getScreenHeight() * baseHeight;
 
-		float x = Renderer::getScreenWidth() / 2 - w / 2;
+		//float x = Renderer::getScreenWidth() / 2 - w / 2;
+		float x = Renderer::getScreenWidth() - w;
 		float y = Renderer::getScreenHeight() - (Renderer::getScreenHeight() * 3 * baseHeight);
 
 		Renderer::drawRect(x, y, w, h, 0x25252500 | opacity, 0x25252500 | opacity);
-		Renderer::drawRect(x, y, (w*percent), h, 0x006C9E00 | opacity, 0x006C9E00 | opacity); // 0xFFFFFFFF
+		Renderer::drawRect(x, y, (w*percent), h, 0xeb2a2e00 | opacity, 0xeb2a2e00 | opacity); // 0xFFFFFFFF
 	}
-
-	ImageComponent splash(this, true);
-	splash.setResize(Renderer::getScreenWidth() * 0.6f, 0.0f);
-	splash.setImage(":/splash.svg");
-	splash.setPosition((Renderer::getScreenWidth() - splash.getSize().x()) / 2, (Renderer::getScreenHeight() - splash.getSize().y()) / 2 * 0.6f);
-	splash.render(trans);
-
+	
 	auto& font = mDefaultFonts.at(1);
 	TextCache* cache = font->buildTextCache(text, 0, 0, 0x656565FF);
 

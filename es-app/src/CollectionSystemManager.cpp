@@ -14,8 +14,9 @@
 #include "ThemeData.h"
 #include <pugixml/src/pugixml.hpp>
 #include <fstream>
+#include "Locale.h"
 
-std::string myCollectionsName = "collections";
+std::string myCollectionsName = N_("collections");
 
 #define LAST_PLAYED_MAX	50
 
@@ -27,10 +28,10 @@ CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(windo
 {
 	CollectionSystemDecl systemDecls[] = {
 		//type                  name            long name            //default sort              // theme folder            // isCustom
-		{ AUTO_ALL_GAMES,       "all",          "all games",         "filename, ascending",      "auto-allgames",           false },
-		{ AUTO_LAST_PLAYED,     "recent",       "last played",       "last played, descending",  "auto-lastplayed",         false },
-		{ AUTO_FAVORITES,       "favorites",    "favorites",         "filename, ascending",      "auto-favorites",          false },
-		{ CUSTOM_COLLECTION,    myCollectionsName,  "collections",    "filename, ascending",      "custom-collections",      true }
+	  { AUTO_ALL_GAMES,       N_("all"),         _("ALL GAMES"),      _("FILENAME, ASCENDING"),    "auto-allgames",           false },
+	  { AUTO_LAST_PLAYED,     N_("recent"),      _("LAST PLAYED"),    _("LAST PLAYED, DESCENDING"),"auto-lastplayed",         false },
+	  { AUTO_FAVORITES,       N_("favorites"),   _("FAVORITES"),      _("FILENAME, ASCENDING"),    "auto-favorites",          false },
+	  { CUSTOM_COLLECTION,    myCollectionsName,_("COLLECTIONS"),  _("FILENAME, ASCENDING"),    "custom-collections",      true }
 	};
 
 	// create a map
@@ -376,7 +377,7 @@ std::string CollectionSystemManager::getValidNewCollectionName(std::string inNam
 		size_t remove = std::string::npos;
 
 		// get valid name
-		while((remove = name.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-[]() ")) != std::string::npos)
+		while((remove = name.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-[]() àçèéùâêîôûäëïöüÀÇÈÉÙÂÊÎÔÛÄËÏÖÜ")) != std::string::npos)
 		{
 			name.erase(remove, 1);
 		}
@@ -388,7 +389,7 @@ std::string CollectionSystemManager::getValidNewCollectionName(std::string inNam
 
 	if(name == "")
 	{
-		name = "New Collection";
+		name = _("New Collection");
 	}
 
 	if(name != inName)
@@ -442,13 +443,17 @@ void CollectionSystemManager::setEditMode(std::string collectionName)
 	// if it's bundled, this needs to be the bundle system
 	mEditingCollectionSystemData = sysData;
 
-	GuiInfoPopup* s = new GuiInfoPopup(mWindow, "Editing the '" + Utils::String::toUpper(collectionName) + "' Collection. Add/remove games with Y.", 10000);
+	std::string popup = (boost::locale::format(_("Editing the '{1}' Collection. Add/remove games with Y."))
+			    % Utils::String::toUpper(collectionName)).str();
+	GuiInfoPopup* s = new GuiInfoPopup(mWindow, popup, 10000);
 	mWindow->setInfoPopup(s);
 }
 
 void CollectionSystemManager::exitEditMode()
 {
-	GuiInfoPopup* s = new GuiInfoPopup(mWindow, "Finished editing the '" + mEditingCollection + "' Collection.", 4000);
+	std::string popup = (boost::locale::format(_("Finished editing the '{1}' Collection."))
+			    % mEditingCollection).str();
+	GuiInfoPopup* s = new GuiInfoPopup(mWindow, popup, 4000);
 	mWindow->setInfoPopup(s);
 	mIsEditingCustom = false;
 	mEditingCollection = "Favorites";
@@ -538,14 +543,18 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file, int pressco
 
 			refreshCollectionSystems(file->getSourceFileData());
 		}
+
+		if (sysName == "favorites")
+		  sysName = _("FAVORITES");
+		std::string message;
 		if (adding)
-		{
-			s = new GuiInfoPopup(mWindow, "Added '" + Utils::String::removeParenthesis(name) + "' to '" + Utils::String::toUpper(sysName) + "'", 4000);
-		}
+			message = (boost::locale::format(_("Added '{1}' to '{2}'"))
+			    % Utils::String::removeParenthesis(name) % Utils::String::toUpper(sysName)).str();
+
 		else
-		{
-			s = new GuiInfoPopup(mWindow, "Removed '" + Utils::String::removeParenthesis(name) + "' from '" + Utils::String::toUpper(sysName) + "'", 4000);
-		}
+			message = (boost::locale::format(_("Removed '{1}' from '{2}'"))
+			    % Utils::String::removeParenthesis(name) % Utils::String::toUpper(sysName)).str();
+		s = new GuiInfoPopup(mWindow, message, 4000);
 		mWindow->setInfoPopup(s);
 		return true;
 	}
@@ -591,12 +600,12 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 {
 	FileData* rootFolder = sys->getRootFolder();
 
-	std::string desc = "This collection is empty.";
+	std::string desc = _("This collection is empty.");
 	std::string rating = "0";
 	std::string players = "1";
 	std::string releasedate = "N/A";
-	std::string developer = "None";
-	std::string genre = "None";
+	std::string developer = _("None");
+	std::string genre = _("None");
 	std::string video = "";
 	std::string thumbnail = "";
 	std::string image = "";
@@ -621,8 +630,8 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 			rating = (new_rating > rating ? (new_rating != "" ? new_rating : rating) : rating);
 			players = (new_players > players ? (new_players != "" ? new_players : players) : players);
 			releasedate = (new_releasedate < releasedate ? (new_releasedate != "" ? new_releasedate : releasedate) : releasedate);
-			developer = (developer == "None" ? new_developer : (new_developer != developer ? "Various" : new_developer));
-			genre = (genre == "None" ? new_genre : (new_genre != genre ? "Various" : new_genre));
+			developer = (developer == _("None") ? new_developer : (new_developer != developer ? _("Various") : new_developer));
+			genre = (genre == _("None") ? new_genre : (new_genre != genre ? _("Various") : new_genre));
 
 			switch(games_counter)
 			{
@@ -633,12 +642,11 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 					games_list += "'" + file->getName() + "'";
 					break;
 				case 4:
-					games_list += " among other titles.";
+					games_list += _(" among other titles.");
 			}
 		}
 
-		desc = "This collection contains " + std::to_string(games_counter) + " game"
-				+ (games_counter == 1 ? "" : "s") + ", including " + games_list;
+		desc = (boost::locale::format(_("This collection contains {1} games, including {2}")) % games_counter % games_list).str();
 
 		FileData* randomGame = sys->getRandomGame();
 

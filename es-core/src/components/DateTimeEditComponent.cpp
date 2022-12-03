@@ -2,6 +2,9 @@
 
 #include "resources/Font.h"
 #include "utils/StringUtil.h"
+#include "Log.h"
+#include "Locale.h"
+#include <boost/date_time.hpp>
 
 DateTimeEditComponent::DateTimeEditComponent(Window* window, DisplayMode dispMode) : GuiComponent(window),
 	mEditing(false), mEditIndex(0), mDisplayMode(dispMode), mRelativeUpdateAccumulator(0),
@@ -55,14 +58,28 @@ bool DateTimeEditComponent::input(InputConfig* config, Input input)
 		int incDir = 0;
 		if(config->isMappedLike("up", input) || config->isMappedLike("leftshoulder", input))
 			incDir = 1;
-		else if(config->isMappedLike("down", input) || config->isMappedLike("rightshoulder", input))
+		else if(config->isMappedLike("down", input) || config->isMappedTo("pagedown", input))
 			incDir = -1;
 
 		if(incDir != 0)
 		{
+		  	// FIXME i18n only handling dd/mm/yyyy and mm/dd/yyyy
+			int dayIndex, monthIndex, yearIndex;
+			// There has to be a better way to find the date order...
+			std::stringstream tmp;
+			tmp << boost::locale::as::date << 1542844800; // 2018/11/22
+			if (tmp.str()[0] == '1') {
+				monthIndex = 0;
+				dayIndex = 1;
+			} else {
+				monthIndex = 1;
+				dayIndex = 0;
+			}
+			yearIndex = 2;
+
 			tm new_tm = mTime;
 
-			if(mEditIndex == 0)
+			if(mEditIndex == monthIndex)
 			{
 				new_tm.tm_mon += incDir;
 
@@ -72,7 +89,7 @@ bool DateTimeEditComponent::input(InputConfig* config, Input input)
 					new_tm.tm_mon = 11;
 
 			}
-			else if(mEditIndex == 1)
+			else if(mEditIndex == dayIndex)
 			{
 				const int days_in_month = Utils::Time::daysInMonth(new_tm.tm_year + 1900, new_tm.tm_mon + 1);
 				new_tm.tm_mday += incDir;
@@ -83,7 +100,7 @@ bool DateTimeEditComponent::input(InputConfig* config, Input input)
 					new_tm.tm_mday = days_in_month;
 
 			}
-			else if(mEditIndex == 2)
+			else if(mEditIndex == yearIndex)
 			{
 				new_tm.tm_year += incDir;
 
@@ -192,43 +209,41 @@ DateTimeEditComponent::DisplayMode DateTimeEditComponent::getCurrentDisplayMode(
 
 std::string DateTimeEditComponent::getDisplayString(DisplayMode mode) const
 {
-	std::string fmt;
+	std::stringstream formatted;
+
 	switch(mode)
 	{
 	case DISP_DATE:
-		fmt = "%m/%d/%Y";
+		formatted << boost::locale::as::date << mTime.getTime();
 		break;
 	case DISP_DATE_TIME:
-		if(mTime.getTime() == 0)
-			return "unknown";
-		fmt = "%m/%d/%Y %H:%M:%S";
+		formatted << boost::locale::as::datetime << mTime.getTime();
 		break;
 	case DISP_RELATIVE_TO_NOW:
 		{
 			//relative time
 			if(mTime.getTime() == 0)
-				return "never";
+				return _("never");
 
 			Utils::Time::DateTime now(Utils::Time::now());
 			Utils::Time::Duration dur(now.getTime() - mTime.getTime());
 
-			char buf[64];
-
 			if(dur.getDays() > 0)
-				sprintf(buf, "%d day%s ago", dur.getDays(), (dur.getDays() > 1) ? "s" : "");
+				formatted << boost::locale::format(ngettext("{1} day ago", "{1} days ago", dur.getDays())) % dur.getDays();
 			else if(dur.getHours() > 0)
-				sprintf(buf, "%d hour%s ago", dur.getHours(), (dur.getHours() > 1) ? "s" : "");
+				formatted << boost::locale::format(ngettext("{1} hour ago", "{1} hours ago", dur.getHours())) % dur.getHours();
 			else if(dur.getMinutes() > 0)
-				sprintf(buf, "%d minute%s ago", dur.getMinutes(), (dur.getMinutes() > 1) ? "s" : "");
+				formatted << boost::locale::format(ngettext("{1} minute ago", "{1} minutes ago", dur.getMinutes())) % dur.getMinutes();
 			else
-				sprintf(buf, "%d second%s ago", dur.getSeconds(), (dur.getSeconds() > 1) ? "s" : "");
-
-			return std::string(buf);
+				formatted << boost::locale::format(ngettext("{1} second ago", "{1} seconds ago", dur.getSeconds())) % dur.getSeconds();
 		}
 		break;
 	}
+	
+	if(mTime.getTime() == 0)
+		return _("unknown");
 
-	return Utils::Time::timeToString(mTime, fmt);
+	return formatted.str();
 }
 
 std::shared_ptr<Font> DateTimeEditComponent::getFont() const
@@ -261,6 +276,7 @@ void DateTimeEditComponent::updateTextCache()
 	if(dispString.empty() || mode == DISP_RELATIVE_TO_NOW)
 		return;
 
+	// FIXME i18n This only works for dd/mm/yyyy and mm/dd/yyyy date formats
 	//month
 	Vector2f start(0, 0);
 	Vector2f end = font->sizeText(dispString.substr(0, 2));

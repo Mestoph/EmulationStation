@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <string>
+#include "Locale.h"
 
 class FileData;
 class InputConfig;
@@ -38,7 +39,7 @@ private:
 	void unlockUIMode();
 
 	static UIModeController * sInstance;
-	const std::vector<std::string> mUIModes = { "Full", "Kiosk", "Kid" };
+	const std::vector<std::string> mUIModes = { N_("Full"), N_("Kiosk"), N_("Kid") };
 
 	// default passkeyseq = "uuddlrlrba", as defined in the setting 'UIMode_passkey'.
 	std::string mPassKeySequence;

@@ -2,17 +2,20 @@
 
 #include "utils/StringUtil.h"
 #include "Log.h"
+#include "Log.h"
+#include "Locale.h"
 #include "Settings.h"
+#include <boost/date_time.hpp>
 
 DateTimeComponent::DateTimeComponent(Window* window) : TextComponent(window), mDisplayRelative(false)
 {
-	setFormat("%m/%d/%Y");
+	setFormat("");
 }
 
 DateTimeComponent::DateTimeComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color, Alignment align,
 	Vector3f pos, Vector2f size, unsigned int bgcolor) : TextComponent(window, text, font, color, align, pos, size, bgcolor), mDisplayRelative(false)
 {
-	setFormat("%m/%d/%Y");
+	setFormat("");
 }
 
 void DateTimeComponent::setValue(const std::string& val)
@@ -28,7 +31,19 @@ std::string DateTimeComponent::getValue() const
 
 void DateTimeComponent::setFormat(const std::string& format)
 {
-	mFormat = format;
+	if (format.empty())
+	{
+		// FIXME i18n only handling dd/mm/yyyy and mm/dd/yyyy
+		// There has to be a better way to find the date order...
+		std::stringstream tmp;
+		tmp << boost::locale::as::date << 1542844800; // 2018/11/22
+		if (tmp.str()[0] == '1')
+			mFormat = "%m/%d/%Y";
+		else
+			mFormat = "%d/%m/%Y";
+	}
+	else
+		mFormat = format;
 	onTextChanged();
 }
 
@@ -50,27 +65,27 @@ std::string DateTimeComponent::getDisplayString() const
 	if (mDisplayRelative) {
 		//relative time
 		if(mTime.getTime() == 0)
-			return "never";
+			return _("never");
 
 		Utils::Time::DateTime now(Utils::Time::now());
 		Utils::Time::Duration dur(now.getTime() - mTime.getTime());
 
 		char buf[64];
-
+		std::stringstream formatted;
 		if(dur.getDays() > 0)
-			sprintf(buf, "%d day%s ago", dur.getDays(), (dur.getDays() > 1) ? "s" : "");
+			formatted << boost::locale::format(ngettext("{1} day ago", "{1} days ago", dur.getDays())) % dur.getDays();
 		else if(dur.getHours() > 0)
-			sprintf(buf, "%d hour%s ago", dur.getHours(), (dur.getHours() > 1) ? "s" : "");
+			formatted << boost::locale::format(ngettext("{1} hour ago", "{1} hours ago", dur.getHours())) % dur.getHours();
 		else if(dur.getMinutes() > 0)
-			sprintf(buf, "%d minute%s ago", dur.getMinutes(), (dur.getMinutes() > 1) ? "s" : "");
+			formatted << boost::locale::format(ngettext("{1} minute ago", "{1} minutes ago", dur.getMinutes())) % dur.getMinutes();
 		else
-			sprintf(buf, "%d second%s ago", dur.getSeconds(), (dur.getSeconds() > 1) ? "s" : "");
+			formatted << boost::locale::format(ngettext("{1} second ago", "{1} seconds ago", dur.getSeconds())) % dur.getSeconds();
 
 		return std::string(buf);
 	}
 
 	if(mTime.getTime() == 0)
-		return "unknown";
+		return _("unknown");
 
 	return Utils::Time::timeToString(mTime.getTime(), mFormat);
 }

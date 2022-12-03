@@ -6,6 +6,7 @@
 #include "ThemeData.h"
 #include "Window.h"
 #include <SDL_timer.h>
+#include "Locale.h"
 
 #define FADE_TIME_MS	200
 
@@ -212,7 +213,7 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 std::vector<HelpPrompt> VideoComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> ret;
-	ret.push_back(HelpPrompt("a", "select"));
+	ret.push_back(HelpPrompt("a", _("SELECT")));
 	return ret;
 }
 

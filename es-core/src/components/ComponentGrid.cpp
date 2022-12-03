@@ -1,6 +1,7 @@
 #include "components/ComponentGrid.h"
 
 #include "Settings.h"
+#include "Locale.h"
 
 using namespace GridFlags;
 
@@ -430,11 +431,11 @@ std::vector<HelpPrompt> ComponentGrid::getHelpPrompts()
 	}
 
 	if(canScrollHoriz && canScrollVert)
-		prompts.push_back(HelpPrompt("up/down/left/right", "choose"));
+		prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE")));
 	else if(canScrollHoriz)
-		prompts.push_back(HelpPrompt("left/right", "choose"));
+		prompts.push_back(HelpPrompt("left/right", _("CHOOSE")));
 	else if(canScrollVert)
-		prompts.push_back(HelpPrompt("up/down", "choose"));
+		prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
 
 	return prompts;
 }

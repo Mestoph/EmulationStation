@@ -1,5 +1,5 @@
-EmulationStation
-================
+Localized EmulationStation
+==========================
 
 This is a fork of EmulationStation for RetroPie.
 EmulationStation is a cross-platform graphical front-end for emulators with controller navigation.
@@ -18,40 +18,57 @@ All of this be easily installed with `apt-get`:
 ```bash
 sudo apt-get install libsdl2-dev libfreeimage-dev libfreetype6-dev libcurl4-openssl-dev rapidjson-dev \
   libasound2-dev libgles2-mesa-dev build-essential cmake fonts-droid-fallback libvlc-dev \
-  libvlccore-dev vlc-bin
+  libvlccore-dev vlc-bin \
+  libboost-system-dev libboost-filesystem-dev libboost-date-time-dev libboost-locale-dev libeigen3-dev  
 ```
+
 **On Fedora:**
 All of this be easily installed with `dnf` (with rpmfusion activated) :
 ```bash
 sudo dnf install SDL2-devel freeimage-devel freetype-devel curl-devel \
   alsa-lib-devel mesa-libGL-devel cmake \
-  vlc-devel rapidjson-devel 
+  vlc-devel rapidjson-devel \
+  libboost-system-devel libboost-filesystem-devel libboost-date-time-devel libboost-locale-devel libeigen3-devel
 ```
 
 **Note**: this repository uses a git submodule - to checkout the source and all submodules, use
 
 ```bash
-git clone --recursive https://github.com/RetroPie/EmulationStation.git
-```
-
-or 
-
-```bash
-git clone https://github.com/RetroPie/EmulationStation.git
-cd EmulationStation
-git submodule update --init
+git clone --recursive --depth 1 --shallow-submodules https://github.com/Mestoph/EmulationStation.git
 ```
 
 Then, generate and build the Makefile with CMake:
+
 ```bash
 cd YourEmulationStationDirectory
-cmake .
+mkdir build
+cd build
+cmake ..
 make
+chmod +x emulationstation
+```
+
+or (for Raspberry):
+
+```bash
+cd YourEmulationStationDirectory
+mkdir build
+cd build
+cmake .. -DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2/ -DRPI=On -DGL=On -DOMX=On
+make
+chmod +x emulationstation
 ```
 
 NOTE: to generate a `Debug` build on Unix/Linux, run the Makefile generation step as:
+
 ```bash
-cmake -DCMAKE_BUILD_TYPE=Debug .
+cmake .. -DCMAKE_BUILD_TYPE=Debug
+```
+
+or (for Raspberry):
+
+```bash
+cmake .. -DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2/ -DRPI=On -DGL=On -DOMX=On -DCMAKE_BUILD_TYPE=Debug
 ```
 
 **On the Raspberry Pi**
@@ -214,7 +231,61 @@ I've put some themes up for download on my EmulationStation webpage: http://alos
 
 If you're using RetroPie, you should already have a nice set of themes automatically installed!
 
+Localized version
+=================
 
--Alec "Aloshi" Lofquist
-http://www.aloshi.com
-http://www.emulationstation.org
+### Run EmulationStation
+
+Be aware that your system must be set to the same locale that you want EmulationStation to run on.
+
+```
+cd YourEmulationStationDirectory
+LANG=[your_locale].UTF8 ./emulationstation
+```
+
+### Install EmulationStation
+
+```
+cd YourEmulationStationDirectory
+
+sudo mv /opt/retropie/supplementary/emulationstation/emulationstation /opt/retropie/supplementary/emulationstation/emulationstation.bak
+sudo cp emulationstation /opt/retropie/supplementary/emulationstation/
+sudo cp -r locale /opt/retropie/supplementary/emulationstation/
+```
+
+## How to add a translation
+
+> You should have, at least, [created a clone from GitHub](#create-a-clone-from-github) before continuing with the following steps.
+
+### Create files for the new locale
+
+```
+cd YourEmulationStationDirectory
+mkdir lang/[your_locale]
+cp locale/emulationstation2.pot locale/lang/[your_locale]/emulationstation2.po
+```
+
+### Translate the strings
+
+Open the newly created `emulationstation2.po` inside `[your_locale]` folder and start translating all the `msgstr` strings.
+
+Once you are done, you can [compile EmulationStation](#compile-emulationstation) and then [run](#run-emulationstation) it to test your translations.
+
+## Author
+
+[flyinghead] (https://github.com/flyinghead/EmulationStation)
+[Mestoph] (https://github.com/Mestoph/EmulationStation) /!\ Mestoph only merged the works.
+[Alec "Aloshi" Lofquist] (http://www.aloshi.com)
+[Alec "Aloshi" Lofquist] (http://www.emulationstation.org)
+
+## Credits
+
+Thanks to:
+
+* [flyinghead](https://github.com/flyinghead) - For the French translations.
+* [heloisa](https://github.com/heloisatech) - For the Portuguese (Brazilian) and Spanish (Spain) translations.
+* [wakaya](https://retropie.org.uk/forum/user/wakaya) - For the Japanese translations and for the instructions on how to use the localized EmulationStation.
+* [hiulit](https://github.com/hiulit) - For the Catalan and Spanish (Spain) translations.
+* [Taranchul](https://github.com/Taranchul) - For the German translations.
+* Unknown - For the Italian translations.
+* [losernator](https://github.com/losernator) - For the Korean translations.

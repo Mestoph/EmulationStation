@@ -6,6 +6,7 @@
 #include "InputManager.h"
 #include "Log.h"
 #include "Window.h"
+#include "Locale.h"
 
 struct InputConfigStructure
 {
@@ -68,20 +69,20 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 	// 0 is a spacer row
 	mGrid.setEntry(std::make_shared<GuiComponent>(mWindow), Vector2i(0, 0), false);
 
-	mTitle = std::make_shared<TextComponent>(mWindow, "CONFIGURING", Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, _("CONFIGURING"), Font::get(FONT_SIZE_LARGE), 0x555555FF, ALIGN_CENTER);
 	mGrid.setEntry(mTitle, Vector2i(0, 1), false, true);
-
-	std::stringstream ss;
+	
+	std::string deviceName;
 	if(target->getDeviceId() == DEVICE_KEYBOARD)
-		ss << "KEYBOARD";
+		deviceName = _("KEYBOARD");
 	else if(target->getDeviceId() == DEVICE_CEC)
-		ss << "CEC";
+		deviceName = _("CEC");
 	else
-		ss << "GAMEPAD " << (target->getDeviceId() + 1);
-	mSubtitle1 = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(ss.str()), Font::get(FONT_SIZE_MEDIUM), 0x555555FF, ALIGN_CENTER);
+		deviceName = (boost::locale::format(_("GAMEPAD {1}")) % (target->getDeviceId() + 1)).str();
+	mSubtitle1 = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(deviceName), Font::get(FONT_SIZE_MEDIUM), 0x555555FF, ALIGN_CENTER);
 	mGrid.setEntry(mSubtitle1, Vector2i(0, 2), false, true);
 
-	mSubtitle2 = std::make_shared<TextComponent>(mWindow, "HOLD ANY BUTTON TO SKIP", Font::get(FONT_SIZE_SMALL), 0x999999FF, ALIGN_CENTER);
+	mSubtitle2 = std::make_shared<TextComponent>(mWindow, _("HOLD ANY BUTTON TO SKIP"), Font::get(FONT_SIZE_SMALL), 0x999999FF, ALIGN_CENTER);
 	mSubtitle2->setOpacity(GUI_INPUT_CONFIG_LIST[0].skippable * 255);
 	mGrid.setEntry(mSubtitle2, Vector2i(0, 3), false, true);
 
@@ -108,7 +109,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		auto text = std::make_shared<TextComponent>(mWindow, GUI_INPUT_CONFIG_LIST[i].dispName, Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
 		row.addElement(text, true);
 
-		auto mapping = std::make_shared<TextComponent>(mWindow, "-NOT DEFINED-", Font::get(FONT_SIZE_MEDIUM, FONT_PATH_LIGHT), 0x999999FF, ALIGN_RIGHT);
+		auto mapping = std::make_shared<TextComponent>(mWindow, _("-NOT DEFINED-"), Font::get(FONT_SIZE_MEDIUM, FONT_PATH_LIGHT), 0x999999FF, ALIGN_RIGHT);
 		setNotDefined(mapping); // overrides text and color set above
 		row.addElement(mapping, true);
 		mMappings.push_back(mapping);
@@ -186,21 +187,21 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		InputManager::getInstance()->writeDeviceConfig(mTargetConfig); // save
 		if(okCallback)
 			okCallback();
-		delete this;
+		delete this; 
 	};
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, "OK", "ok", [this, okFunction] {
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("OK"), _("OK"), [this, okFunction] {
 		// check if the hotkey enable button is set. if not prompt the user to use select or nothing.
 		Input input;
 		if (!mTargetConfig->getInputByName("HotKeyEnable", &input)) {
 			mWindow->pushGui(new GuiMsgBox(mWindow,
-				"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON.",
-				"YES", [this, okFunction] {
+				_("YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."),
+				_("YES"), [this, okFunction] {
 					Input input;
 					mTargetConfig->getInputByName("Select", &input);
 					mTargetConfig->mapInput("HotKeyEnable", input);
 					okFunction();
 					},
-				"NO", [this, okFunction] {
+				_("NO"), [this, okFunction] {
 					// for a disabled hotkey enable button, set to a key with id 0,
 					// so the input configuration script can be backwards compatible.
 					mTargetConfig->mapInput("HotKeyEnable", Input(DEVICE_KEYBOARD, TYPE_KEY, 0, 1, true));
@@ -255,9 +256,9 @@ void GuiInputConfig::update(int deltaTime)
 			{
 				// crossed the second boundary, update text
 				const auto& text = mMappings.at(mHeldInputId);
-				std::stringstream ss;
-				ss << "HOLD FOR " << HOLD_TO_SKIP_MS/1000 - curSec << "S TO SKIP";
-				text->setText(ss.str());
+				const int delay =  HOLD_TO_SKIP_MS/1000 - curSec;
+				std::string message = (boost::locale::format(ngettext("HOLD FOR {1}S TO SKIP", "HOLD FOR {1}S TO SKIP", delay)) % delay).str();
+				text->setText(message);
 				text->setColor(0x777777FF);
 			}
 		}
@@ -288,13 +289,13 @@ void GuiInputConfig::rowDone()
 
 void GuiInputConfig::setPress(const std::shared_ptr<TextComponent>& text)
 {
-	text->setText("PRESS ANYTHING");
+	text->setText(_("PRESS ANYTHING"));
 	text->setColor(0x656565FF);
 }
 
 void GuiInputConfig::setNotDefined(const std::shared_ptr<TextComponent>& text)
 {
-	text->setText("-NOT DEFINED-");
+	text->setText(_("-NOT DEFINED-"));
 	text->setColor(0x999999FF);
 }
 
@@ -306,7 +307,7 @@ void GuiInputConfig::setAssignedTo(const std::shared_ptr<TextComponent>& text, I
 
 void GuiInputConfig::error(const std::shared_ptr<TextComponent>& text, const std::string& /*msg*/)
 {
-	text->setText("ALREADY TAKEN");
+	text->setText(_("ALREADY TAKEN"));
 	text->setColor(0x656565FF);
 }
 

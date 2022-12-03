@@ -98,6 +98,7 @@ endif()
 find_package(Freetype REQUIRED)
 find_package(FreeImage REQUIRED)
 find_package(SDL2 REQUIRED)
+find_package(Boost REQUIRED COMPONENTS date_time locale)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
@@ -172,6 +173,7 @@ set(COMMON_INCLUDE_DIRS
     ${FREETYPE_INCLUDE_DIRS}
     ${FreeImage_INCLUDE_DIRS}
     ${SDL2_INCLUDE_DIRS}
+    ${Boost_INCLUDE_DIRS}
     ${CURL_INCLUDE_DIR}
     ${VLC_INCLUDE_DIR}
     ${RAPIDJSON_INCLUDE_DIRS}
@@ -205,8 +207,12 @@ endif()
 
 #-------------------------------------------------------------------------------
 #define libraries and directories
+link_directories(
+    ${Boost_LIBRARY_DIRS}
+)
 
 set(COMMON_LIBRARIES
+    ${Boost_LIBRARIES}
     ${FREETYPE_LIBRARIES}
     ${FreeImage_LIBRARIES}
     ${SDL2_LIBRARIES}
@@ -270,3 +276,13 @@ set(LIBRARY_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
 add_subdirectory("external")
 add_subdirectory("es-core")
 add_subdirectory("es-app")
+
+# i18n
+find_program (MSGFMT_EXECUTABLE msgfmt)
+find_program (MSGMERGE_EXECUTABLE msgmerge)
+find_program (XGETTEXT_EXECUTABLE xgettext)
+if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE)
+	message (STATUS "Native language support enabled.")
+	add_subdirectory (locale)
+endif()
+

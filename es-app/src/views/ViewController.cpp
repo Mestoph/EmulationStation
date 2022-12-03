@@ -17,6 +17,7 @@
 #include "Settings.h"
 #include "SystemData.h"
 #include "Window.h"
+#include "Locale.h"
 
 ViewController* ViewController::sInstance = NULL;
 
@@ -77,7 +78,7 @@ void ViewController::goToStart()
 
 void ViewController::ReloadAndGoToStart()
 {
-	mWindow->renderLoadingScreen("Loading...");
+	mWindow->renderLoadingScreen(_("Loading..."));
 	ViewController::get()->reloadAll();
 	ViewController::get()->goToStart();
 }
@@ -548,7 +549,7 @@ std::vector<HelpPrompt> ViewController::getHelpPrompts()
 
 	prompts = mCurrentView->getHelpPrompts();
 	if(!(UIModeController::getInstance()->isUIModeKid() && Settings::getInstance()->getBool("DisableKidStartMenu")))
-		prompts.push_back(HelpPrompt("start", "menu"));
+		prompts.push_back(HelpPrompt("start", _("MENU")));
 
 	return prompts;
 }

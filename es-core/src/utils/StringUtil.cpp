@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <stdarg.h>
+#include <boost/locale.hpp>
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -162,13 +163,7 @@ namespace Utils
 
 		std::string toUpper(const std::string& _string)
 		{
-			std::string string;
-
-			for(size_t i = 0; i < _string.length(); ++i)
-				string += (char)toupper(_string[i]);
-
-			return string;
-
+			return boost::locale::to_upper(_string);
 		} // toUpper
 
 //////////////////////////////////////////////////////////////////////////
