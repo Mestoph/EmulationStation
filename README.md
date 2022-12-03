@@ -273,10 +273,10 @@ Once you are done, you can [compile EmulationStation](#compile-emulationstation)
 
 ## Author
 
-[flyinghead] (https://github.com/flyinghead/EmulationStation)
-[Mestoph] (https://github.com/Mestoph/EmulationStation) /!\ Mestoph only merged the works.
-[Alec "Aloshi" Lofquist] (http://www.aloshi.com)
-[Alec "Aloshi" Lofquist] (http://www.emulationstation.org)
+* [flyinghead] (https://github.com/flyinghead/EmulationStation)
+* [Mestoph] (https://github.com/Mestoph/EmulationStation) /!\ Mestoph only merged the works.
+* [Alec "Aloshi" Lofquist] (http://www.aloshi.com)
+* [Alec "Aloshi" Lofquist] (http://www.emulationstation.org)
 
 ## Credits
 
