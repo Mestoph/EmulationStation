@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: retropie-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-02 23:35+0100\n"
+"POT-Creation-Date: 2019-02-06 10:58+0100\n"
 "Last-Translator: hiulit \n"
 "Language: ca_ES\n"
 "MIME-Version: 1.0\n"
@@ -10,65 +10,432 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "SCRAPE NOW"
-msgstr "SCRAPE ARA"
+msgid "NAME"
+msgstr "NOM"
 
-msgid "SCRAPE THESE GAMES"
-msgstr "SCRAPE AQUESTS JOCS"
+msgid "ENTER GAME NAME"
+msgstr "NOM DEL JOC"
 
-msgid "All Games"
-msgstr "Tots els jocs"
+msgid "SORTNAME"
+msgstr "NOM DE LA CLASSIFICACIÓ"
 
-msgid "Only missing image"
-msgstr "Només els que no tenen imatge"
+msgid "ENTER GAME SORT NAME"
+msgstr "NOM DE LA CLASSIFICACIÓ DEL JOC"
 
-msgid "FILTER"
-msgstr "FILTRE"
+msgid "DESCRIPTION"
+msgstr "DESCRIPCIÓ"
 
-msgid "SCRAPE THESE SYSTEMS"
-msgstr "SCRAPE AQUESTS SISTEMES"
+msgid "ENTER DESCRIPTION"
+msgstr "DESCRIPCIÓ"
 
-msgid "SYSTEMS"
-msgstr "SISTEMES"
+msgid "IMAGE"
+msgstr "IMATGE"
 
-msgid "USER DECIDES ON CONFLICTS"
-msgstr "L'USUARI DECIDEIX SOBRE ELS CONFLICTES"
+msgid "ENTER PATH TO IMAGE"
+msgstr "RUTA DE LA IMATGE"
 
-msgid "START"
+msgid "VIDEO"
+msgstr "VÍDEO"
+
+msgid "ENTER PATH TO VIDEO"
+msgstr "RUTA DEL VÍDEO"
+
+msgid "MARQUEE"
+msgstr "MARQUESINA"
+
+msgid "ENTER PATH TO MARQUEE"
+msgstr "RUTA DE LA MARQUESINA"
+
+msgid "THUMBNAIL"
+msgstr "MINIATURA"
+
+msgid "ENTER PATH TO THUMBNAIL"
+msgstr "RUTA DE LA MINIATURA"
+
+msgid "RATING"
+msgstr "PUNTUACIÓ"
+
+msgid "ENTER RATING"
+msgstr "PUNTUACIÓ"
+
+msgid "RELEASE DATE"
+msgstr "DATA DE PUBLICACIÓ"
+
+msgid "ENTER RELEASE DATE"
+msgstr "DATA DE PUBLICACIÓ"
+
+msgid "unknown"
+msgstr "desconegut"
+
+msgid "DEVELOPER"
+msgstr "DESENVOLUPADOR"
+
+msgid "ENTER GAME DEVELOPER"
+msgstr "DESENVOLUPADOR DEL JOC"
+
+msgid "PUBLISHER"
+msgstr "EDITOR"
+
+msgid "ENTER GAME PUBLISHER"
+msgstr "EDITOR DEL JOC"
+
+msgid "GENRE"
+msgstr "GÈNERE"
+
+msgid "ENTER GAME GENRE"
+msgstr "GÈNERE DEL JOC"
+
+msgid "PLAYERS"
+msgstr "JUGADORS"
+
+msgid "ENTER NUMBER OF PLAYERS"
+msgstr "NÚMERO DE JUGADORS"
+
+msgid "FAVORITE"
+msgstr "FAVORIT"
+
+msgid "ENTER FAVORITE OFF/ON"
+msgstr "FAVORIT SÍ/NO"
+
+msgid "HIDDEN"
+msgstr "OCULT"
+
+msgid "ENTER HIDDEN OFF/ON"
+msgstr "OCULT SÍ/NO"
+
+msgid "KIDGAME"
+msgstr "JOC INFANTIL"
+
+msgid "ENTER KIDGAME OFF/ON"
+msgstr "JOC INFANTIL SÍ/NO"
+
+msgid "PLAY COUNT"
+msgstr "NÚMERO DE PARTIDES"
+
+msgid "ENTER NUMBER OF TIMES PLAYED"
+msgstr "NÚMERO DE VEGADES JUGAT"
+
+msgid "LAST PLAYED"
+msgstr "ÚLTIMS JOCS JUGATS"
+
+msgid "ENTER LAST PLAYED DATE"
+msgstr "DATA DE L'ÚLTIMA PARTIDA"
+
+msgid "collections"
+msgstr "col·leccions"
+
+msgid "all"
+msgstr "tots"
+
+msgid "ALL GAMES"
+msgstr "TOTS ELS JOCS"
+
+msgid "FILENAME, ASCENDING"
+msgstr "NOM ↑"
+
+msgid "recent"
+msgstr "recent"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "ÚLTIMS JUGATS ↓"
+
+msgid "favorites"
+msgstr "favorits"
+
+msgid "FAVORITES"
+msgstr "FAVORITS"
+
+msgid "COLLECTIONS"
+msgstr "COL·LECCIONS"
+
+msgid "New Collection"
+msgstr "Nova Col·lecció"
+
+msgid "Editing the '{1}' Collection. Add/remove games with Y."
+msgstr "Editant la col·lecció '{1}'. Afegir/eliminar jocs amb Y."
+
+msgid "Finished editing the '{1}' Collection."
+msgstr "Acabada l'edició de la col·lecció '{1}'."
+
+msgid "Added '{1}' to '{2}'"
+msgstr "Afegit '{1}' a '{2}'"
+
+msgid "Removed '{1}' from '{2}'"
+msgstr "Eliminat '{1}' de '{2}'"
+
+msgid "This collection is empty."
+msgstr "Aquesta col·lecció està buida."
+
+msgid "None"
+msgstr "Cap"
+
+msgid "Various"
+msgstr "Diversos"
+
+msgid " among other titles."
+msgstr " entre altres títols."
+
+msgid "This collection contains {1} games, including {2}"
+msgstr "Aquesta col·lecció conté {1} jocs, incloent {2}"
+
+msgid ""
+"IT LOOKS LIKE YOUR SYSTEMS CONFIGURATION FILE HAS NOT BEEN SET UP OR IS "
+"INVALID. YOU'LL NEED TO DO THIS BY HAND, UNFORTUNATELY.\n"
+"\n"
+"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION."
+msgstr ""
+"SEMBLA QUE EL TEU FITXER DE CONFIGURACIÓ DE SISTEMES NO S'HA CONFIGURAT "
+"O NO ÉS VÀLID. MALAURADAMENT L'HAS DE CONFIGURAR MANUALMENT\n."
+"\n"
+"VISITA EMULATIONSTATION.ORG PER A MÉS INFORMACIÓ."
+
+msgid ""
+"WE CAN'T FIND ANY SYSTEMS!\n"
+"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
+"\n"
+"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION."
+msgstr ""
+"NO HEM TROBAT CAP SISTEMA!\n"
+"COMPROVA QUE LES RUTES EN EL FITXER DE CONFIGURACIÓ DE SISTEMES SIGUIN CORRECTES, I "
+"QUE EL TEU DIRECTORY DE JOCS TÉ COM A MÍNIM UN JOC AMB L'EXTENSIÓ CORRECTA.\n"
+"\n"
+"VISITA EMULATIONSTATION.ORG PER A MÉS INFORMACIÓ."
+
+msgid "QUIT"
+msgstr "SURT"
+
+msgid "PUBLISHER / DEVELOPER"
+msgstr "EDITOR / DESENVOLUPADOR"
+
+msgid "{1} STARS"
+msgstr "{1} ESTRELLES"
+
+msgid "0 STARS"
+msgstr "0 ESTRELLES"
+
+msgid "FILENAME, DESCENDING"
+msgstr "NOM ↓"
+
+msgid "RATING, ASCENDING"
+msgstr "PUNTUACIÓ ↑"
+
+msgid "RATING, DESCENDING"
+msgstr "PUNTUACIÓ ↓"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "VEGADES JUGAT ↑"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "VEGADES JUGAT ↓"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "ÚLTIMS JUGATS ↑"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "NÚMERO DE JUGADORS ↑"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "NÚMERO DE JUGADORS ↓"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "DATA DE PUBLICACIÓ ↑"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "DATA DE PUBLICACIÓ ↓"
+
+msgid "GENRE, ASCENDING"
+msgstr "GÈNERE ↑"
+
+msgid "GENRE, DESCENDING"
+msgstr "GÈNERE ↓"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "DESENVOLUPADOR ↑"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "DESENVOLUPADOR ↓"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "EDITOR ↑"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "EDITOR ↓"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "SISTEMA ↑"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "SISTEMA ↓"
+
+msgid "ADD STAR"
+msgstr "AFEGIR ESTRELLA"
+
+msgid "CANCEL"
+msgstr "CANCEL·LA"
+
+msgid "RATING:"
+msgstr "PUNTUACIÓ:"
+
+msgid "RELEASED:"
+msgstr "PUBLICAT:"
+
+msgid "DEVELOPER:"
+msgstr "DESENVOLUPADOR:"
+
+msgid "PUBLISHER:"
+msgstr "EDITOR:"
+
+msgid "GENRE:"
+msgstr "GÈNERE:"
+
+msgid "PLAYERS:"
+msgstr "JUGADORS:"
+
+msgid ""
+"Configured scraper is no longer available.\n"
+"Please change the scraping source in the settings."
+msgstr ""
+"L''scraper' configurat ja no està disponible.\n"
+"Canvieu l'origen de l''scraper' a la configuració."
+
+msgid "FINISH"
+msgstr "ACABAR"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NO S'HA TROBAT CAP JOC - OMETRE"
+
+msgid "RETRY"
+msgstr "TORNAR-HO A PROVAR"
+
+msgid "SKIP"
+msgstr "OMETRE"
+
+msgid "SEARCH FOR"
+msgstr "CERCA PER"
+
+msgid "SEARCH"
+msgstr "CERCA"
+
+msgid "ACCEPT RESULT"
+msgstr "ACCEPTA EL RESULTAT"
+
+msgid "MENU"
+msgstr "MENÚ"
+
+msgid ""
+"The selected UI mode has nothing to show,\n"
+" returning to UI mode: FULL"
+msgstr ""
+"El mode de la interfície d'usuari seleccionat no té res a mostrar,\n"
+" tornant al mode de la interfície d'usuari: COMPLET"
+
+msgid "OK"
+msgstr "D'ACORD"
+
+msgid "CONFIGURATION"
+msgstr "CONFIGURACIÓ"
+
+msgid "{1} GAME AVAILABLE"
+msgid_plural "{1} GAMES AVAILABLE"
+msgstr[0] "{1} JOC DISPONIBLE"
+msgstr[1] "{1} JOCS DISPONIBLES"
+
+msgid "CHOOSE"
+msgstr "TRIA"
+
+msgid "SELECT"
+msgstr "SELECCIONA"
+
+msgid "RANDOM"
+msgstr "ALEATORI"
+
+msgid "LAUNCH SCREENSAVER"
+msgstr "INICIA L'ESTALVI DE PANTALLA"
+
+msgid "Full"
+msgstr "Complet"
+
+msgid "Kiosk"
+msgstr "Kiosk"
+
+msgid "Kid"
+msgstr "Infantil"
+
+msgid "<No Entries Found>"
+msgstr "<No s'ha trobat cap entrada>"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "LAUNCH"
 msgstr "INICIA"
 
 msgid "BACK"
 msgstr "TORNA"
 
-msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
-"CONTINUE ANYWAY?"
-msgstr ""
-"AVÍS: ALGUNS DELS SISTEMES SELECCIONATS NO TENEN UNA PLATAFORMA CONFIGURADA. "
-"ELS RESULTATS PODEN SER ENCARA MÉS INEXACTES DEL QUE ÉS HABITUAL!\n"
-"VOLEU CONTINUAR IGUALMENT?"
+msgid "OPTIONS"
+msgstr "OPCIONS"
 
-msgid "YES"
-msgstr "SÍ"
+msgid "LAST PLAYED:"
+msgstr "ÚLTIM JOC JUGAT:"
 
-msgid "NO"
-msgstr "NO"
-
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "NO HI HA JOCS QUE S'AJUSTIN A AQUEST CRITERI."
+msgid "TIMES PLAYED:"
+msgstr "VEGADES JUGAT:"
 
 msgid "CLOSE"
 msgstr "TANCA"
 
-msgid "INPUT"
-msgstr "ENTRADA"
+msgid "SCREENSAVER AFTER"
+msgstr "INICIA L'ESTALVI DE PANTALLA DESRPRÉS DE"
 
-msgid "SEARCH"
-msgstr "CERCA"
+msgid "SCREENSAVER CONTROLS"
+msgstr "CONTROLS DE L'ESTALVI DE PANTALLA"
 
-msgid "CANCEL"
-msgstr "CANCEL·LA"
+msgid "SCREENSAVER BEHAVIOR"
+msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
+
+msgid "dim"
+msgstr "tènue"
+
+msgid "black"
+msgstr "negre"
+
+msgid "random video"
+msgstr "vídeo aleatori"
+
+msgid "slideshow"
+msgstr "presentació"
+
+msgid ""
+"The \"Random Video\" screensaver shows videos from your gamelist.\n"
+"\n"
+"If you do not have videos, or if in several consecutive attempts the games "
+"it selects don't have videos it will default to black.\n"
+"\n"
+"More options in the \"UI Settings\" > \"Video Screensaver\" menu."
+msgstr ""
+"L'opció \"Vídeo Aleatori\" de l'estalvi de pantalla mostra els vídeos de la llista de jocs.\n"
+"\n"
+"Si no hi ha vídeos, o si en diversos intents consecutius els jocs "
+"seleccionats no tenen vídeos, l'estalvi de pantalla es quedarà en negre.\n"
+"\n"
+"Veieu més opcions en el menú \"Configuració de la interfície de l'usuari\" > \"Estalvi de pantalla (mode vídeo)\"."
+
+msgid "USE HARDWARE BACKLIGHT CONTROL"
+msgstr "UTILIZA EL CONTROL DE LA LLUM DE FONS DEL MAQUINARI"
+
+msgid "VIDEO SCREENSAVER SETTINGS"
+msgstr "CONFIGURACIÓ DE L'ESTALVI DE PANTALLA (MODE VÍDEO)"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "CONFIGURACIÓ DE L'ESTALVI DE PANTALLA (MODE PRESENTACIÓ)"
+
+msgid "VIDEO SCREENSAVER"
+msgstr "ESTALVI DE PANTALLA (MODE VÍDEO)"
+
+msgid "SLIDESHOW SCREENSAVER"
+msgstr "ESTALVI DE PANTALLA (MODE PRESENTACIÓ)"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -91,20 +458,32 @@ msgstr "ALTRES CONFIGURACIONS"
 msgid "CONFIGURE INPUT"
 msgstr "CONFIGURA L'ENTRADA DE DISPOSITIUS"
 
-msgid "QUIT"
-msgstr "SURT"
-
 msgid "SCRAPE FROM"
 msgstr "SCRAPE DE"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE PUNTUACIONS"
 
+msgid "SCRAPE NOW"
+msgstr "SCRAPE ARA"
+
 msgid "SYSTEM VOLUME"
 msgstr "VOLUM DEL SISTEMA"
 
 msgid "AUDIO CARD"
 msgstr "TARGETA D'ÀUDIO"
+
+msgid "local"
+msgstr "local"
+
+msgid "hdmi"
+msgstr "hdmi"
+
+msgid "both"
+msgstr "ambdós"
+
+msgid "default"
+msgstr "per defecte"
 
 msgid "AUDIO DEVICE"
 msgstr "DISPOSITIU D'ÀUDIO"
@@ -133,15 +512,6 @@ msgstr "ACTIVA EL SO DEL VÍDEO"
 msgid "OMX PLAYER AUDIO DEVICE"
 msgstr "DISPOSITIU D'ÀUDIO DEL REPRODUCTOR OMX"
 
-msgid "local"
-msgstr "local"
-
-msgid "hdmi"
-msgstr "hdmi"
-
-msgid "both"
-msgstr "ambdós"
-
 msgid "UI MODE"
 msgstr "MODE DE LA INTERFÍCIE D'USUARI"
 
@@ -157,11 +527,16 @@ msgstr ""
 "Esteu canviant la interfície d'usuari a un mode restringit:\n"
 "{1}\n"
 "S'ocultarà la majoria de les opcions del menú per evitar canvis al sistema.\n"
-"Per a desbloquejar i tornar a la interfície d'usuari completa, introduïu "
-"aquest codi:\n"
+"Per a desbloquejar i tornar a la interfície d'usuari completa, introduïu aquest codi:\n"
 "\"{2}\"\n"
 "\n"
 "Voleu continuar?"
+
+msgid "YES"
+msgstr "SÍ"
+
+msgid "NO"
+msgstr "NO"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "CONFIGURACIÓ DE L'ESTALVI DE PANTALLA"
@@ -229,11 +604,11 @@ msgstr "MODE D'ESTALVI D'ENERGIA"
 msgid "disabled"
 msgstr "desactivat"
 
-msgid "default"
-msgstr "per defecte"
-
 msgid "enhanced"
 msgstr "millorat"
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "DESA LES METADADES AL SORTIR"
 
 msgid "PARSE GAMESLISTS ONLY"
 msgstr "ANALITZA NOMÉS 'LLISTES DE JOCS'"
@@ -271,49 +646,6 @@ msgstr "REALMENT VOLEU APAGAR EL SISTEMA?"
 msgid "SHUTDOWN SYSTEM"
 msgstr "APAGA EL SISTEMA"
 
-msgid "CHOOSE"
-msgstr "TRIA"
-
-msgid "SELECT"
-msgstr "SELECCIONA"
-
-msgid "SCRAPING IN PROGRESS"
-msgstr "SCRAPING EN PROGRÉS"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "subtitle text"
-msgstr "text del subtítol"
-
-msgid "SKIP"
-msgstr "OMETRE"
-
-msgid "STOP"
-msgstr "ATURA"
-
-msgid "STOP (PROGRESS SAVED)"
-msgstr "ATURA (PROGRÉS DESAT)"
-
-msgid "GAME {1} OF {2}"
-msgstr "JOC {1} DE {2}"
-
-msgid "NO GAMES WERE SCRAPED."
-msgstr "CAP JOC HA SIGUT SCRAPED."
-
-msgid "{1} GAME SUCCESSFULLY SCRAPED!"
-msgid_plural "{1} GAMES SUCCESSFULLY SCRAPED!"
-msgstr[0] "{1} JOC SCRAPED SATISFACTÒRIAMENT!"
-msgstr[1] "{1} JOCS SCRAPED SATISFACTÒRIAMENT!"
-
-msgid "{1} GAME SKIPPED."
-msgid_plural "{1} GAMES SKIPPED."
-msgstr[0] "{1} JOC OMÈS."
-msgstr[1] "{1} JOCS OMESOS."
-
-msgid "OK"
-msgstr "D'ACORD"
-
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CREA UNA NOVA COL·LECCIÓ PERSONALITZADA DEL TEMA"
 
@@ -344,73 +676,8 @@ msgstr "COL·LECCIONS AUTOMÀTIQUES DE JOCS"
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COL·LECCIONS PERSONALITZADES DE JOCS"
 
-msgid "SCREENSAVER AFTER"
-msgstr "INICIA L'ESTALVI DE PANTALLA DESRPRÉS DE"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "CONTROLS DE L'ESTALVI DE PANTALLA"
-
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "COMPORTAMENT DE L'ESTALVI DE PANTALLA"
-
-msgid "dim"
-msgstr "tènue"
-
-msgid "black"
-msgstr "negre"
-
-msgid "random video"
-msgstr "vídeo aleatori"
-
-msgid "slideshow"
-msgstr "presentació"
-
-msgid ""
-"The \"Random Video\" screensaver shows videos from your gamelist.\n"
-"\n"
-"If you do not have videos, or if in several consecutive attempts the games "
-"it selects don't have videos it will default to black.\n"
-"\n"
-"More options in the \"UI Settings\" > \"Video Screensaver\" menu."
-msgstr ""
-"L'opció \"Vídeo Aleatori\" de l'estalvi de pantalla mostra els vídeos de la "
-"llista de jocs.\n"
-"\n"
-"Si no hi ha vídeos, o si en diversos intents consecutius els jocs "
-"seleccionats no tenen vídeos, l'estalvi de pantalla es quedarà en negre.\n"
-"\n"
-"Veieu més opcions en el menú \"Configuració de la interfície de l'usuari\" > "
-"\"Estalvi de pantalla (mode vídeo)\"."
-
-msgid "VIDEO SCREENSAVER SETTINGS"
-msgstr "CONFIGURACIÓ DE L'ESTALVI DE PANTALLA (MODE VÍDEO)"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "CONFIGURACIÓ DE L'ESTALVI DE PANTALLA (MODE PRESENTACIÓ)"
-
-msgid "VIDEO SCREENSAVER"
-msgstr "ESTALVI DE PANTALLA (MODE VÍDEO)"
-
-msgid "SLIDESHOW SCREENSAVER"
-msgstr "ESTALVI DE PANTALLA (MODE PRESENTACIÓ)"
-
-msgid "FILTER GAMELIST BY"
-msgstr "FILTRA LA LLISTA DE JOCS PER"
-
-msgid "RESET ALL FILTERS"
-msgstr "RESTABLEIX TOT ELS FILTRES"
-
-msgid "FALSE"
-msgstr "FALSE"
-
-msgid "TRUE"
-msgstr "VERITAT"
-
 msgid "EDIT METADATA"
 msgstr "EDITA LES METADADES"
-
-msgid "unknown"
-msgstr "desconegut"
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -421,8 +688,7 @@ msgstr "DESA"
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
-msgstr ""
-"S'ELIMINARAN EL(S) FITXER(S) REAL(S)!\n"
+msgstr "S'ELIMINARAN EL(S) FITXER(S) REAL(S)!\n"
 "N'ESTEU SEGUR?"
 
 msgid "DELETE"
@@ -430,9 +696,6 @@ msgstr "ELIMINA"
 
 msgid "SAVE CHANGES?"
 msgstr "VOLEU DESAR ELS CANVIS?"
-
-msgid "OPTIONS"
-msgstr "OPCIONS"
 
 msgid "JUMP TO..."
 msgstr "VÉS A..."
@@ -449,26 +712,38 @@ msgstr "AFEGEIX/ELIMINA JOCS A AQUESTA COL·LECCIÓ DE JOCS"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDITA LES METADADES D'AQUEST JOC"
 
-msgid "SWAP MEDIA AFTER (SECS)"
+msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "INTERCANVIA LA IMATGE DESPRÉS DE"
 
-msgid "STRETCH MEDIA"
+msgid "STRETCH IMAGES"
 msgstr "ESTIRA LES IMATGES"
 
 msgid "BACKGROUND AUDIO"
 msgstr "ÀUDIO DE FONS"
 
-msgid "USE CUSTOM MEDIA"
+msgid "USE CUSTOM IMAGES"
 msgstr "UTILITZA IMATGES PERSONALITZADES"
 
-msgid "CUSTOM MEDIA DIR"
+msgid "CUSTOM IMAGE DIR"
 msgstr "DIRECTORI DE LES IMATGES PERSONALITZADES"
 
-msgid "CUSTOM MEDIA DIR RECURSIVE"
+msgid "CUSTOM IMAGE DIR RECURSIVE"
 msgstr "DIRECTORI RECURSIU DE LES IMATGES PERSONALITZADES"
 
 msgid "CUSTOM IMAGE FILTER"
 msgstr "FILTRE DE LES IMATGES PERSONALITZADES"
+
+msgid "FILTER GAMELIST BY"
+msgstr "FILTRA LA LLISTA DE JOCS PER"
+
+msgid "RESET ALL FILTERS"
+msgstr "RESTABLEIX TOT ELS FILTRES"
+
+msgid "FALSE"
+msgstr "FALSE"
+
+msgid "TRUE"
+msgstr "VERITAT"
 
 msgid "SWAP VIDEO AFTER (SECS)"
 msgstr "INTERCANVIA EL VÍDEO DESPRÉS D"
@@ -491,6 +766,12 @@ msgstr "mai"
 msgid "SHOW GAME INFO ON SCREENSAVER"
 msgstr "MOSTRA LA INFORMACIÓ DEL JOC A L'ESTALVI DE PANTALLA"
 
+msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
+msgstr "UTILITZA BAIXA RESOLUCIÓ COMPATIBLE PER ALS SUBTÍTOLS"
+
+msgid "STRETCH VIDEO ON SCREENSAVER"
+msgstr "ESTIRA EL VÍDEO A L'ESTALVI DE PANTALLA"
+
 msgid ""
 "Using OMX Player and displaying Game Info may result in the video flickering "
 "in some TV modes. If that happens, consider:\n"
@@ -500,9 +781,8 @@ msgid ""
 "RetroPie > Raspi-Config > Advanced Options > Overscan > \"No\".\n"
 "- Disabling the use of OMX Player for the screensaver."
 msgstr ""
-"L'ús del reproductor OMX i la visualització de la informació del joc poden "
-"provocar un parpelleig del vídeo en alguns models de televisors. Si això "
-"passa, prova a:\n"
+"L'ús del reproductor OMX i la visualització de la informació del joc poden provocar un parpelleig del vídeo "
+"en alguns models de televisors. Si això passa, prova a:\n"
 "\n"
 "- Desactivar l'opció \"Mostra la informació del joc\"\n"
 "- Desactivar \"Overscan\" en el menú de configuració de la Raspberry Pi:\n"
@@ -512,349 +792,124 @@ msgstr ""
 msgid "GOT IT!"
 msgstr "ENTESOS!"
 
-msgid "collections"
-msgstr "col·leccions"
+msgid "SCRAPE THESE GAMES"
+msgstr "SCRAPE AQUESTS JOCS"
 
-msgid "all"
-msgstr "tots"
+msgid "All Games"
+msgstr "Tots els jocs"
 
-msgid "ALL GAMES"
-msgstr "TOTS ELS JOCS"
+msgid "Only missing image"
+msgstr "Només els que no tenen imatge"
 
-msgid "FILENAME, ASCENDING"
-msgstr "NOM ↑"
+msgid "FILTER"
+msgstr "FILTRE"
 
-msgid "recent"
-msgstr "recent"
+msgid "SCRAPE THESE SYSTEMS"
+msgstr "SCRAPE AQUESTS SISTEMES"
 
-msgid "LAST PLAYED"
-msgstr "ÚLTIMS JOCS JUGATS"
+msgid "SYSTEMS"
+msgstr "SISTEMES"
 
-msgid "LAST PLAYED, DESCENDING"
-msgstr "ÚLTIMS JUGATS ↓"
+msgid "USER DECIDES ON CONFLICTS"
+msgstr "L'USUARI DECIDEIX SOBRE ELS CONFLICTES"
 
-msgid "favorites"
-msgstr "favorits"
-
-msgid "FAVORITES"
-msgstr "FAVORITS"
-
-msgid "COLLECTIONS"
-msgstr "COL·LECCIONS"
-
-msgid "New Collection"
-msgstr "Nova Col·lecció"
-
-msgid "Editing the '{1}' Collection. Add/remove games with Y."
-msgstr "Editant la col·lecció '{1}'. Afegir/eliminar jocs amb Y."
-
-msgid "Finished editing the '{1}' Collection."
-msgstr "Acabada l'edició de la col·lecció '{1}'."
-
-msgid "Added '{1}' to '{2}'"
-msgstr "Afegit '{1}' a '{2}'"
-
-msgid "Removed '{1}' from '{2}'"
-msgstr "Eliminat '{1}' de '{2}'"
-
-msgid "This collection is empty."
-msgstr "Aquesta col·lecció està buida."
-
-msgid "None"
-msgstr "Cap"
-
-msgid "Various"
-msgstr "Diversos"
-
-msgid " among other titles."
-msgstr " entre altres títols."
-
-msgid "This collection contains {1} games, including {2}"
-msgstr "Aquesta col·lecció conté {1} jocs, incloent {2}"
-
-msgid "GENRE"
-msgstr "GÈNERE"
-
-msgid "PLAYERS"
-msgstr "JUGADORS"
-
-msgid "PUBLISHER / DEVELOPER"
-msgstr "EDITOR / DESENVOLUPADOR"
-
-msgid "RATING"
-msgstr "PUNTUACIÓ"
-
-msgid "KIDGAME"
-msgstr "JOC INFANTIL"
-
-msgid "HIDDEN"
-msgstr "OCULT"
-
-msgid "{1} STARS"
-msgstr "{1} ESTRELLES"
-
-msgid "0 STARS"
-msgstr "0 ESTRELLES"
-
-msgid "NAME"
-msgstr "NOM"
-
-msgid "ENTER GAME NAME"
-msgstr "NOM DEL JOC"
-
-msgid "SORTNAME"
-msgstr "NOM DE LA CLASSIFICACIÓ"
-
-msgid "ENTER GAME SORT NAME"
-msgstr "NOM DE LA CLASSIFICACIÓ DEL JOC"
-
-msgid "DESCRIPTION"
-msgstr "DESCRIPCIÓ"
-
-msgid "ENTER DESCRIPTION"
-msgstr "DESCRIPCIÓ"
-
-msgid "IMAGE"
-msgstr "IMATGE"
-
-msgid "ENTER PATH TO IMAGE"
-msgstr "RUTA DE LA IMATGE"
-
-msgid "VIDEO"
-msgstr "VÍDEO"
-
-msgid "ENTER PATH TO VIDEO"
-msgstr "RUTA DEL VÍDEO"
-
-msgid "MARQUEE"
-msgstr "MARQUESINA"
-
-msgid "ENTER PATH TO MARQUEE"
-msgstr "RUTA DE LA MARQUESINA"
-
-msgid "THUMBNAIL"
-msgstr "MINIATURA"
-
-msgid "ENTER PATH TO THUMBNAIL"
-msgstr "RUTA DE LA MINIATURA"
-
-msgid "ENTER RATING"
-msgstr "PUNTUACIÓ"
-
-msgid "RELEASE DATE"
-msgstr "DATA DE PUBLICACIÓ"
-
-msgid "ENTER RELEASE DATE"
-msgstr "DATA DE PUBLICACIÓ"
-
-msgid "DEVELOPER"
-msgstr "DESENVOLUPADOR"
-
-msgid "ENTER GAME DEVELOPER"
-msgstr "DESENVOLUPADOR DEL JOC"
-
-msgid "PUBLISHER"
-msgstr "EDITOR"
-
-msgid "ENTER GAME PUBLISHER"
-msgstr "EDITOR DEL JOC"
-
-msgid "ENTER GAME GENRE"
-msgstr "GÈNERE DEL JOC"
-
-msgid "ENTER NUMBER OF PLAYERS"
-msgstr "NÚMERO DE JUGADORS"
-
-msgid "FAVORITE"
-msgstr "FAVORIT"
-
-msgid "ENTER FAVORITE OFF/ON"
-msgstr "FAVORIT SÍ/NO"
-
-msgid "ENTER HIDDEN OFF/ON"
-msgstr "OCULT SÍ/NO"
-
-msgid "ENTER KIDGAME OFF/ON"
-msgstr "JOC INFANTIL SÍ/NO"
-
-msgid "PLAY COUNT"
-msgstr "NÚMERO DE PARTIDES"
-
-msgid "ENTER NUMBER OF TIMES PLAYED"
-msgstr "NÚMERO DE VEGADES JUGAT"
-
-msgid "ENTER LAST PLAYED DATE"
-msgstr "DATA DE L'ÚLTIMA PARTIDA"
-
-msgid "ADD STAR"
-msgstr "AFEGIR ESTRELLA"
-
-msgid "RATING:"
-msgstr "PUNTUACIÓ:"
-
-msgid "RELEASED:"
-msgstr "PUBLICAT:"
-
-msgid "DEVELOPER:"
-msgstr "DESENVOLUPADOR:"
-
-msgid "PUBLISHER:"
-msgstr "EDITOR:"
-
-msgid "GENRE:"
-msgstr "GÈNERE:"
-
-msgid "PLAYERS:"
-msgstr "JUGADORS:"
-
-msgid ""
-"Configured scraper is no longer available.\n"
-"Please change the scraping source in the settings."
-msgstr ""
-"L''scraper' configurat ja no està disponible.\n"
-"Canvieu l'origen de l''scraper' a la configuració."
-
-msgid "FINISH"
-msgstr "ACABAR"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "NO S'HA TROBAT CAP JOC - OMETRE"
-
-msgid "RETRY"
-msgstr "TORNAR-HO A PROVAR"
-
-msgid "SEARCH FOR"
-msgstr "CERCA PER"
-
-msgid "ACCEPT RESULT"
-msgstr "ACCEPTA EL RESULTAT"
-
-msgid ""
-"IT LOOKS LIKE YOUR SYSTEMS CONFIGURATION FILE HAS NOT BEEN SET UP OR IS "
-"INVALID. YOU'LL NEED TO DO THIS BY HAND, UNFORTUNATELY.\n"
-"\n"
-"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION."
-msgstr ""
-"SEMBLA QUE EL TEU FITXER DE CONFIGURACIÓ DE SISTEMES NO S'HA CONFIGURAT O NO "
-"ÉS VÀLID. MALAURADAMENT L'HAS DE CONFIGURAR MANUALMENT\n"
-".\n"
-"VISITA EMULATIONSTATION.ORG PER A MÉS INFORMACIÓ."
-
-msgid ""
-"WE CAN'T FIND ANY SYSTEMS!\n"
-"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
-"YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n"
-"\n"
-"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION."
-msgstr ""
-"NO HEM TROBAT CAP SISTEMA!\n"
-"COMPROVA QUE LES RUTES EN EL FITXER DE CONFIGURACIÓ DE SISTEMES SIGUIN "
-"CORRECTES, I QUE EL TEU DIRECTORY DE JOCS TÉ COM A MÍNIM UN JOC AMB "
-"L'EXTENSIÓ CORRECTA.\n"
-"\n"
-"VISITA EMULATIONSTATION.ORG PER A MÉS INFORMACIÓ."
-
-msgid "Loading..."
-msgstr ""
-
-msgid "MENU"
-msgstr "MENÚ"
-
-msgid "LAST PLAYED:"
-msgstr "ÚLTIM JOC JUGAT:"
-
-msgid "TIMES PLAYED:"
-msgstr "VEGADES JUGAT:"
-
-msgid "<No Entries Found>"
-msgstr "<No s'ha trobat cap entrada>"
-
-msgid "LAUNCH"
+msgid "START"
 msgstr "INICIA"
 
-msgid "RANDOM"
-msgstr "ALEATORI"
-
-msgid "Full"
-msgstr "Complet"
-
-msgid "Kiosk"
-msgstr "Kiosk"
-
-msgid "Kid"
-msgstr "Infantil"
-
 msgid ""
-"The selected UI mode has nothing to show,\n"
-" returning to UI mode: FULL"
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+"CONTINUE ANYWAY?"
 msgstr ""
-"El mode de la interfície d'usuari seleccionat no té res a mostrar,\n"
-" tornant al mode de la interfície d'usuari: COMPLET"
+"AVÍS: ALGUNS DELS SISTEMES SELECCIONATS NO TENEN UNA PLATAFORMA CONFIGURADA. ELS RESULTATS "
+"PODEN SER ENCARA MÉS INEXACTES DEL QUE ÉS HABITUAL!\n"
+"VOLEU CONTINUAR IGUALMENT?"
 
-msgid "CONFIGURATION"
-msgstr "CONFIGURACIÓ"
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "NO HI HA JOCS QUE S'AJUSTIN A AQUEST CRITERI."
 
-msgid "{1} GAME AVAILABLE"
-msgid_plural "{1} GAMES AVAILABLE"
-msgstr[0] "{1} JOC DISPONIBLE"
-msgstr[1] "{1} JOCS DISPONIBLES"
+msgid "INPUT"
+msgstr "ENTRADA"
 
-msgid "LAUNCH SCREENSAVER"
-msgstr "INICIA L'ESTALVI DE PANTALLA"
+msgid "SCRAPING IN PROGRESS"
+msgstr "SCRAPING EN PROGRÉS"
 
-msgid "FILENAME, DESCENDING"
-msgstr "NOM ↓"
+msgid "subtitle text"
+msgstr "text del subtítol"
 
-msgid "RATING, ASCENDING"
-msgstr "PUNTUACIÓ ↑"
+msgid "STOP"
+msgstr "ATURA"
 
-msgid "RATING, DESCENDING"
-msgstr "PUNTUACIÓ ↓"
+msgid "STOP (PROGRESS SAVED)"
+msgstr "ATURA (PROGRÉS DESAT)"
 
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "VEGADES JUGAT ↑"
+msgid "GAME {1} OF {2}"
+msgstr "JOC {1} DE {2}"
 
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "VEGADES JUGAT ↓"
+msgid "NO GAMES WERE SCRAPED."
+msgstr "CAP JOC HA SIGUT SCRAPED."
 
-msgid "LAST PLAYED, ASCENDING"
-msgstr "ÚLTIMS JUGATS ↑"
+msgid "{1} GAME SUCCESSFULLY SCRAPED!"
+msgid_plural "{1} GAMES SUCCESSFULLY SCRAPED!"
+msgstr[0] "{1} JOC SCRAPED SATISFACTÒRIAMENT!"
+msgstr[1] "{1} JOCS SCRAPED SATISFACTÒRIAMENT!"
 
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr "NÚMERO DE JUGADORS ↑"
+msgid "{1} GAME SKIPPED."
+msgid_plural "{1} GAMES SKIPPED."
+msgstr[0] "{1} JOC OMÈS."
+msgstr[1] "{1} JOCS OMESOS."
 
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr "NÚMERO DE JUGADORS ↓"
+msgid "LOADING..."
+msgstr "CARREGANT..."
 
-msgid "RELEASE DATE, ASCENDING"
-msgstr "DATA DE PUBLICACIÓ ↑"
+msgid "CHANGE"
+msgstr "CANVIA"
 
-msgid "RELEASE DATE, DESCENDING"
-msgstr "DATA DE PUBLICACIÓ ↓"
+msgid "{1} day ago"
+msgid_plural "{1} days ago"
+msgstr[0] "fa {1} dia"
+msgstr[1] "fa {1} dies"
 
-msgid "GENRE, ASCENDING"
-msgstr "GÈNERE ↑"
+msgid "{1} hour ago"
+msgid_plural "{1} hours ago"
+msgstr[0] "fa {1} hora"
+msgstr[1] "fa {1} hores"
 
-msgid "GENRE, DESCENDING"
-msgstr "GÈNERE ↓"
+msgid "{1} minute ago"
+msgid_plural "{1} minutes ago"
+msgstr[0] "fa {1} minut"
+msgstr[1] "fa {1} minuts"
 
-msgid "DEVELOPER, ASCENDING"
-msgstr "DESENVOLUPADOR ↑"
+msgid "{1} second ago"
+msgid_plural "{1} seconds ago"
+msgstr[0] "fa {1} segon"
+msgstr[1] "fa {1} segons"
 
-msgid "DEVELOPER, DESCENDING"
-msgstr "DESENVOLUPADOR ↓"
+msgid "WORKING..."
+msgstr "TREBALLANT..."
 
-msgid "PUBLISHER, ASCENDING"
-msgstr "EDITOR ↑"
+msgid "ACCEPT"
+msgstr "ACCEPTA"
 
-msgid "PUBLISHER, DESCENDING"
-msgstr "EDITOR ↓"
+msgid "SELECT ALL"
+msgstr "SELECCIONA TOT"
 
-msgid "SYSTEM, ASCENDING"
-msgstr "SISTEMA ↑"
+msgid "SELECT NONE"
+msgstr "SELECCIONA CAP"
 
-msgid "SYSTEM, DESCENDING"
-msgstr "SISTEMA ↓"
+msgid "{1} SELECTED"
+msgid_plural "{1} SELECTED"
+msgstr[0] "{1} SELECCIONAT"
+msgstr[1] "{1} SELECCIONATS"
+
+msgid "MOVE CURSOR"
+msgstr "MOU EL CURSOR"
+
+msgid "STOP EDITING"
+msgstr "ATURA L'EDICIÓ"
+
+msgid "EDIT"
+msgstr "EDITA"
 
 msgid "WELCOME"
 msgstr "US DONEM LA BENVINGUDA"
@@ -879,6 +934,106 @@ msgstr "PREMEU ESC PER A CANCEL·LAR."
 msgid "DISCARD CHANGES"
 msgstr "DESCARTA ELS CANVI"
 
+msgctxt "button"
+msgid "D-PAD UP"
+msgstr "D-PAD AMUNT"
+
+msgctxt "button"
+msgid "D-PAD DOWN"
+msgstr "D-PAD AVALL"
+
+msgctxt "button"
+msgid "D-PAD LEFT"
+msgstr "D-PAD ESQUERRA"
+
+msgctxt "button"
+msgid "D-PAD RIGHT"
+msgstr "D-PAD DRETA"
+
+msgctxt "button"
+msgid "START"
+msgstr "INICIAR"
+
+msgctxt "button"
+msgid "SELECT"
+msgstr "SELECCIONAR"
+
+msgctxt "button"
+msgid "BUTTON A / EAST"
+msgstr "BOTÓ A / EST"
+
+msgctxt "button"
+msgid "BUTTON B / SOUTH"
+msgstr "BOTÓ B / SUD"
+
+msgctxt "button"
+msgid "BUTTON X / NORTH"
+msgstr "BOTÓ X / NORD"
+
+msgctxt "button"
+msgid "BUTTON Y / WEST"
+msgstr "BOTÓ Y / OEST"
+
+msgctxt "button"
+msgid "LEFT SHOULDER"
+msgstr "L1"
+
+msgctxt "button"
+msgid "RIGHT SHOULDER"
+msgstr "R1"
+
+msgctxt "button"
+msgid "LEFT TRIGGER"
+msgstr "L2"
+
+msgctxt "button"
+msgid "RIGHT TRIGGER"
+msgstr "R2"
+
+msgctxt "button"
+msgid "LEFT THUMB"
+msgstr "THUMB ESQUERRA"
+
+msgctxt "button"
+msgid "RIGHT THUMB"
+msgstr "THUMB DRETA"
+
+msgctxt "button"
+msgid "LEFT ANALOG UP"
+msgstr "ANALÒGIC ESQUERRA AMUNT"
+
+msgctxt "button"
+msgid "LEFT ANALOG DOWN"
+msgstr "ANALÒGIC ESQUERRA AVALL"
+
+msgctxt "button"
+msgid "LEFT ANALOG LEFT"
+msgstr "ANALÒGIC ESQUERRA ESQUERRA"
+
+msgctxt "button"
+msgid "LEFT ANALOG RIGHT"
+msgstr "ANALÒGIC ESQUERRA DRETA"
+
+msgctxt "button"
+msgid "RIGHT ANALOG UP"
+msgstr "ANALÒGIC DRETA AMUNT"
+
+msgctxt "button"
+msgid "RIGHT ANALOG DOWN"
+msgstr "ANALÒGIC DRETA AVALL"
+
+msgctxt "button"
+msgid "RIGHT ANALOG LEFT"
+msgstr "ANALÒGIC DRETA ESQUERRA"
+
+msgctxt "button"
+msgid "RIGHT ANALOG RIGHT"
+msgstr "ANALÒGIC DRETA DRETA"
+
+msgctxt "button"
+msgid "HOTKEY ENABLE"
+msgstr "ACTIVADOR DE LA HOTKEY"
+
 msgid "CONFIGURING"
 msgstr "CONFIGURANT"
 
@@ -902,10 +1057,9 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"NO S'HA TRIAT CAP BOTÓ PER A ACTIVAR LA 'HOTKEY'. ÉS NECESSARI PER A SORTIR "
-"DELS JOCS AMB UN COMANDAMENT. VOLEU FER SERVIR EL BOTÓ 'SELECCIONAR' PER "
-"DEFECTE? CONTESTEU 'SÍ' PER A FER SERVIR EL BOTO 'SELECCIONAR' O 'NO' PER A "
-"NO CONFIGURAR CAP BOTÓ PER A ACTIVAR LA 'HOTKEY'."
+"NO S'HA TRIAT CAP BOTÓ PER A ACTIVAR LA 'HOTKEY'. ÉS NECESSARI PER A SORTIR DELS JOCS "
+"AMB UN COMANDAMENT. VOLEU FER SERVIR EL BOTÓ 'SELECCIONAR' PER DEFECTE? "
+"CONTESTEU 'SÍ' PER A FER SERVIR EL BOTO 'SELECCIONAR' O 'NO' PER A NO CONFIGURAR CAP BOTÓ PER A ACTIVAR LA 'HOTKEY'."
 
 msgid "HOLD FOR {1}S TO SKIP"
 msgid_plural "HOLD FOR {1}S TO SKIP"
@@ -917,167 +1071,3 @@ msgstr "PREM QUALSEVOL"
 
 msgid "ALREADY TAKEN"
 msgstr "JA EXISTEIX"
-
-msgid "{1} day ago"
-msgid_plural "{1} days ago"
-msgstr[0] "fa {1} dia"
-msgstr[1] "fa {1} dies"
-
-msgid "{1} hour ago"
-msgid_plural "{1} hours ago"
-msgstr[0] "fa {1} hora"
-msgstr[1] "fa {1} hores"
-
-msgid "{1} minute ago"
-msgid_plural "{1} minutes ago"
-msgstr[0] "fa {1} minut"
-msgstr[1] "fa {1} minuts"
-
-msgid "{1} second ago"
-msgid_plural "{1} seconds ago"
-msgstr[0] "fa {1} segon"
-msgstr[1] "fa {1} segons"
-
-msgid "ACCEPT"
-msgstr "ACCEPTA"
-
-msgid "SELECT ALL"
-msgstr "SELECCIONA TOT"
-
-msgid "SELECT NONE"
-msgstr "SELECCIONA CAP"
-
-msgid "{1} SELECTED"
-msgid_plural "{1} SELECTED"
-msgstr[0] "{1} SELECCIONAT"
-msgstr[1] "{1} SELECCIONATS"
-
-msgid "CHANGE"
-msgstr "CANVIA"
-
-msgid "MOVE CURSOR"
-msgstr "MOU EL CURSOR"
-
-msgid "STOP EDITING"
-msgstr "ATURA L'EDICIÓ"
-
-msgid "EDIT"
-msgstr "EDITA"
-
-msgid "WORKING..."
-msgstr "TREBALLANT..."
-
-#~ msgid "SAVE METADATA ON EXIT"
-#~ msgstr "DESA LES METADADES AL SORTIR"
-
-#~ msgid "USE HARDWARE BACKLIGHT CONTROL"
-#~ msgstr "UTILIZA EL CONTROL DE LA LLUM DE FONS DEL MAQUINARI"
-
-#~ msgid "USE COMPATIBLE LOW RESOLUTION FOR CAPTIONS"
-#~ msgstr "UTILITZA BAIXA RESOLUCIÓ COMPATIBLE PER ALS SUBTÍTOLS"
-
-#~ msgid "STRETCH VIDEO ON SCREENSAVER"
-#~ msgstr "ESTIRA EL VÍDEO A L'ESTALVI DE PANTALLA"
-
-#~ msgctxt "button"
-#~ msgid "D-PAD UP"
-#~ msgstr "D-PAD AMUNT"
-
-#~ msgctxt "button"
-#~ msgid "D-PAD DOWN"
-#~ msgstr "D-PAD AVALL"
-
-#~ msgctxt "button"
-#~ msgid "D-PAD LEFT"
-#~ msgstr "D-PAD ESQUERRA"
-
-#~ msgctxt "button"
-#~ msgid "D-PAD RIGHT"
-#~ msgstr "D-PAD DRETA"
-
-#~ msgctxt "button"
-#~ msgid "START"
-#~ msgstr "INICIAR"
-
-#~ msgctxt "button"
-#~ msgid "SELECT"
-#~ msgstr "SELECCIONAR"
-
-#~ msgctxt "button"
-#~ msgid "BUTTON A / EAST"
-#~ msgstr "BOTÓ A / EST"
-
-#~ msgctxt "button"
-#~ msgid "BUTTON B / SOUTH"
-#~ msgstr "BOTÓ B / SUD"
-
-#~ msgctxt "button"
-#~ msgid "BUTTON X / NORTH"
-#~ msgstr "BOTÓ X / NORD"
-
-#~ msgctxt "button"
-#~ msgid "BUTTON Y / WEST"
-#~ msgstr "BOTÓ Y / OEST"
-
-#~ msgctxt "button"
-#~ msgid "LEFT SHOULDER"
-#~ msgstr "L1"
-
-#~ msgctxt "button"
-#~ msgid "RIGHT SHOULDER"
-#~ msgstr "R1"
-
-#~ msgctxt "button"
-#~ msgid "LEFT TRIGGER"
-#~ msgstr "L2"
-
-#~ msgctxt "button"
-#~ msgid "RIGHT TRIGGER"
-#~ msgstr "R2"
-
-#~ msgctxt "button"
-#~ msgid "LEFT THUMB"
-#~ msgstr "THUMB ESQUERRA"
-
-#~ msgctxt "button"
-#~ msgid "RIGHT THUMB"
-#~ msgstr "THUMB DRETA"
-
-#~ msgctxt "button"
-#~ msgid "LEFT ANALOG UP"
-#~ msgstr "ANALÒGIC ESQUERRA AMUNT"
-
-#~ msgctxt "button"
-#~ msgid "LEFT ANALOG DOWN"
-#~ msgstr "ANALÒGIC ESQUERRA AVALL"
-
-#~ msgctxt "button"
-#~ msgid "LEFT ANALOG LEFT"
-#~ msgstr "ANALÒGIC ESQUERRA ESQUERRA"
-
-#~ msgctxt "button"
-#~ msgid "LEFT ANALOG RIGHT"
-#~ msgstr "ANALÒGIC ESQUERRA DRETA"
-
-#~ msgctxt "button"
-#~ msgid "RIGHT ANALOG UP"
-#~ msgstr "ANALÒGIC DRETA AMUNT"
-
-#~ msgctxt "button"
-#~ msgid "RIGHT ANALOG DOWN"
-#~ msgstr "ANALÒGIC DRETA AVALL"
-
-#~ msgctxt "button"
-#~ msgid "RIGHT ANALOG LEFT"
-#~ msgstr "ANALÒGIC DRETA ESQUERRA"
-
-#~ msgctxt "button"
-#~ msgid "RIGHT ANALOG RIGHT"
-#~ msgstr "ANALÒGIC DRETA DRETA"
-
-#~ msgctxt "button"
-#~ msgid "HOTKEY ENABLE"
-#~ msgstr "ACTIVADOR DE LA HOTKEY"
-
-#~ msgid "LOADING..."
-#~ msgstr "CARREGANT..."
