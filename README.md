@@ -250,6 +250,7 @@ cd YourEmulationStationDirectory
 
 sudo mv /opt/retropie/supplementary/emulationstation/emulationstation /opt/retropie/supplementary/emulationstation/emulationstation.bak
 sudo cp emulationstation /opt/retropie/supplementary/emulationstation/
+sudo cp -r resources /opt/retropie/supplementary/emulationstation/
 sudo cp -r locale /opt/retropie/supplementary/emulationstation/
 ```
 
