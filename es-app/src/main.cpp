@@ -20,6 +20,7 @@
 #include <SDL_events.h>
 #include <SDL_main.h>
 #include <SDL_timer.h>
+#include <clocale>
 #include <iostream>
 #include <time.h>
 #ifdef WIN32
@@ -246,15 +247,14 @@ bool verifyHomeFolderExists()
 }
 
 // Returns true if everything is OK,
-bool loadSystemConfigFile(Window* window, const char** errorString)
+bool loadSystemConfigFile(Window* window, std::string* errorString)
 {
-	*errorString = NULL;
 
 	if(!SystemData::loadConfig(window))
 	{
 		LOG(LogError) << "Error while parsing systems configuration file!";
 		*errorString = _("IT LOOKS LIKE YOUR SYSTEMS CONFIGURATION FILE HAS NOT BEEN SET UP OR IS INVALID. YOU'LL NEED TO DO THIS BY HAND, UNFORTUNATELY.\n\n" \
-			"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.").c_str();
+			"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.");
 		return false;
 	}
 
@@ -264,7 +264,7 @@ bool loadSystemConfigFile(Window* window, const char** errorString)
 		*errorString = _("WE CAN'T FIND ANY SYSTEMS!\n" \
 			"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, " \
 			"AND YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n\n" \
-			"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.").c_str();
+			"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.");
 		return false;
 	}
 
@@ -277,44 +277,43 @@ void onExit()
 	Log::close();
 }
 
-int setLocale(char * argv1)
+int setLocale(char* argv1)
 {
  	char path_save[PATH_MAX];
   	char abs_exe_path[PATH_MAX];
   	char *p;
 
 	if(!(p = strrchr(argv1, '/'))) {
-    		getcwd(abs_exe_path, sizeof(abs_exe_path));
+		getcwd(abs_exe_path, sizeof(abs_exe_path));
 	}
   	else
   	{
-    		*p = '\0';
-    		getcwd(path_save, sizeof(path_save));
-    		chdir(argv1);
-    		getcwd(abs_exe_path, sizeof(abs_exe_path));
-    		chdir(path_save);
+		*p = '\0';
+		getcwd(path_save, sizeof(path_save));
+		chdir(argv1);
+		getcwd(abs_exe_path, sizeof(abs_exe_path));
+		chdir(path_save);
   	}
-	boost::locale::localization_backend_manager my = boost::locale::localization_backend_manager::global(); 
 	// Get global backend
-
-    	my.select("std");
+	boost::locale::localization_backend_manager my = boost::locale::localization_backend_manager::global();
+	my.select("std");
+	// set this backend globally
 	boost::locale::localization_backend_manager::global(my);
-    	// set this backend globally
 
-    	boost::locale::generator gen;
+	boost::locale::generator gen;
 
 	std::string localeDir = abs_exe_path;
 	localeDir += "/locale/lang";
-	LOG(LogInfo) << "Setting local directory to " << localeDir;
-    	// Specify location of dictionaries
-    	gen.add_messages_path(localeDir);
-    	gen.add_messages_path("/usr/share/locale");
-    	gen.add_messages_domain("emulationstation2");
+	LOG(LogInfo) << "Setting locale directory to " << localeDir;
+	// Specify location of dictionaries
+	gen.add_messages_path(localeDir);
+	gen.add_messages_path("/usr/share/locale");
+	gen.add_messages_domain("emulationstation2");
 
-    	// Generate locales and imbue them to iostream
-    	std::locale::global(gen(""));
-    	std::cout.imbue(std::locale());
-        LOG(LogInfo) << "Locals set...";
+	// Generate locales and imbue them to iostream
+	std::locale::global(gen(""));
+	std::cout.imbue(std::locale());
+	LOG(LogInfo) << "User defined locale: " << std::locale("").name();
 	return 0;
 }
 
@@ -402,11 +401,11 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	const char* errorMsg = NULL;
+	std::string errorMsg = "";
 	if(!loadSystemConfigFile(splashScreen ? &window : nullptr, &errorMsg))
 	{
 		// something went terribly wrong
-		if(errorMsg == NULL)
+		if(errorMsg.empty())
 		{
 			LOG(LogError) << "Unknown error occured while parsing system config file.";
 			if(!scrape_cmdline)
@@ -440,7 +439,7 @@ int main(int argc, char* argv[])
 	InputManager::getInstance()->init();
 
 	//choose which GUI to open depending on if an input configuration already exists
-	if(errorMsg == NULL)
+	if(errorMsg.empty())
 	{
 		if(Utils::FileSystem::exists(InputManager::getConfigPath()) && InputManager::getInstance()->getNumConfiguredDevices() > 0)
 		{
